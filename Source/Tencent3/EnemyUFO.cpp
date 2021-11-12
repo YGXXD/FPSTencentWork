@@ -56,6 +56,7 @@ void AEnemyUFO::Tick(float DeltaTime)
 
 void AEnemyUFO::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
 {
+	Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
 	if(Other->GetOwner())
 	{
 		ATencent3GameMode* GameMode = GetWorld()->GetAuthGameMode<ATencent3GameMode>();

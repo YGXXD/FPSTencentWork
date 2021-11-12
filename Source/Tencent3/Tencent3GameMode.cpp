@@ -11,7 +11,7 @@
 ATencent3GameMode::ATencent3GameMode()
 {
 	// set default pawn class to our Blueprinted character
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/ThirdPersonCPP/Blueprints/ThirdPersonCharacter"));
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/MyFile/BP/BP_MyTencent3Character"));
 	if (PlayerPawnBPClass.Class != NULL)
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
@@ -38,6 +38,7 @@ void ATencent3GameMode::BeginPlay()
 
 void ATencent3GameMode::Tick(float DeltaSeconds)
 {
+	Super::Tick(DeltaSeconds);
 	if(bIsPlaying)
 	{
 		if(Time>0.0f)

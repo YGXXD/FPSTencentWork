@@ -32,6 +32,12 @@ private:
 
 	UPROPERTY()
 	UTextBlock* PlayerNameTextBlock;
+
+	UPROPERTY()
+	UTextBlock* CurrentBulletTextBlock;
+	
+	UPROPERTY()
+	UTextBlock* AllBulletTextBlock;
 	
 	UPROPERTY()
 	UButton* PauseButton;
@@ -60,4 +66,7 @@ public:
 
 	UFUNCTION()
 	void Pause();
+
+	UFUNCTION()
+	void UpdateBulletNum(int CurrentBullet, int AllBullet);
 };

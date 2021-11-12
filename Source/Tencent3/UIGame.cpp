@@ -6,7 +6,6 @@
 
 #include "MyGameInstance.h"
 #include "Tencent3Character.h"
-#include "GameFramework/GameSession.h"
 #include "Kismet/GameplayStatics.h"
 
 bool UUIGame::Initialize()
@@ -17,6 +16,8 @@ bool UUIGame::Initialize()
 	PauseTextBlock = Cast<UTextBlock>(GetWidgetFromName("PauseText"));
 	GameStateTextBlock = Cast<UTextBlock>(GetWidgetFromName("GameState"));
 	PlayerNameTextBlock = Cast<UTextBlock>(GetWidgetFromName("PlayerName"));
+	CurrentBulletTextBlock = Cast<UTextBlock>(GetWidgetFromName("CurrentBullet"));
+	AllBulletTextBlock = Cast<UTextBlock>(GetWidgetFromName("AllBullet"));
 	PauseButton = Cast<UButton>(GetWidgetFromName("Pause"));
 	FireButton = Cast<UButton>(GetWidgetFromName("Fire"));
 	JumpButton = Cast<UButton>(GetWidgetFromName("Jump"));
@@ -33,7 +34,7 @@ bool UUIGame::Initialize()
 		ATencent3Character* Player = Cast<ATencent3Character>(UGameplayStatics::GetPlayerCharacter(this,0));
 		if(Player)
 		{
-			FireButtonDelegate.BindUFunction(Player,"Fire");
+			FireButtonDelegate.BindUFunction(Player,"Attack");
 			FireButton->OnClicked.Add(FireButtonDelegate);
 
 			JumpButtonDelegate.BindUFunction(Player,"Jump");
@@ -77,4 +78,9 @@ void UUIGame::Pause()
 	}
 }
 
+void UUIGame::UpdateBulletNum(int CurrentBulletNum, int AllBulletNum)
+{
+	CurrentBulletTextBlock->SetText(FText::FromString(FString::FromInt(CurrentBulletNum)));
+	AllBulletTextBlock->SetText(FText::FromString(FString::FromInt(AllBulletNum)));
+}
 
