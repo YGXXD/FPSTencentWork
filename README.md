@@ -22,7 +22,7 @@ https://share.weiyun.com/uWUzUiME
 基本物理：
 https://share.weiyun.com/hI086CE0
 
-网络同步（网络同步重新开了一个新项目来实现）：
+网络同步（网络同步重新开了一个新项目来实现:https://github.com/YGXXD/NetShootHomework）：
 https://share.weiyun.com/jYvGadIg
 
 材质渲染：
